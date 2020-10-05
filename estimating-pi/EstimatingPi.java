@@ -40,7 +40,8 @@ public class EstimatingPi {
 		double pi=0;
 		
 		for (int i = 0 ; i < numberOfDarts ; i++) {
-			d = Math.sqrt((Math.pow(generateRand(), 2))+Math.pow(generateRand(), 2));
+			d = Math.sqrt((generateRand()*generateRand())+(generateRand()*generateRand()));
+			//d = Math.sqrt((Math.pow(generateRand(), 2))+Math.pow(generateRand(), 2));
 			if(d<0.5) {
 				inside++;
 			}
@@ -65,7 +66,7 @@ public class EstimatingPi {
         double mean = sum/length;
 
         for(double num: al) {
-            standardDeviation += Math.pow(num - mean, 2);
+            standardDeviation += ((num - mean)*(num - mean));
         }
 
         return Math.sqrt(standardDeviation/length);
